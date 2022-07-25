@@ -5,6 +5,9 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Ionicons from 'react-native-vector-icons/FontAwesome';
 import About from '../components/about';
 import SearchTab from './search_tab';
+import Send from '../screens/Send';
+import Receive from '../screens/Receive';
+import Home from '../screens/Home';
 
 const Tab = createBottomTabNavigator();
 const MainTabBar = () => {
@@ -13,6 +16,12 @@ const MainTabBar = () => {
       <Tab.Navigator
         initialRouteName="Search"
         screenOptions={({ route }) => ({
+          tabBarStyle:{
+            backgroundColor: 'black',
+            borderTopLeftRadius:12,
+            borderTopRightRadius:12,
+            height: 100
+          },
           tabBarIcon: ({ focused }) => {
             let iconName;
 
@@ -30,7 +39,9 @@ const MainTabBar = () => {
           },
         })}
       >
-        <Tab.Screen name="Search" component={SearchTab} />
+        <Tab.Screen name="Home" component={Home} />
+        <Tab.Screen name="Send" component={Send} />
+        <Tab.Screen name="Receive" component={Receive} />
         <Tab.Screen name="About" component={About} />
       </Tab.Navigator>
     </NavigationContainer>
